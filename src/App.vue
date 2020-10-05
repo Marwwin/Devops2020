@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <Header />
+   
+    <Header /> 
+    
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link to="/quiz">Quizz</router-link>
+      <router-link to="/profile">Profile</router-link>
+    </div>
+    <router-view />
     <!-- Skicka in en fråga till barnkomponenten -->
     <Quiz @clicked="checkaSvar" :currentQuestion="questions[current]" />
-    
 
   </div>
 </template>
@@ -60,5 +67,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  font-size: 2.5vh;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+  background-color: white;
+}
+
+#nav a{
+  margin: 15px;
 }
 </style>
