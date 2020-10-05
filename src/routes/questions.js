@@ -93,7 +93,7 @@ router.patch('/', checkAuth, (req, res, next) => {
         .exec()
         .then(result => {
             res.status(200).json({
-                message: "Question updated!"
+                message: "Question updated!"+result
             });
         })
         .catch(error => {

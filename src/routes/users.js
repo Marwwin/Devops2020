@@ -27,7 +27,7 @@ router.delete('/:id', checkAuth, (req, res, next) => {
     User.remove({ _id: req.params.id }).exec()
         .then(result => {
             res.status(200).json({
-                message: "User deleted",
+                message: "User deleted" + result,
             })
         })
         .catch(error => {
@@ -53,14 +53,15 @@ router.post('/signup', (req, res, next) => {
         else {
             const user = new User({
                 _id: new mongoose.Types.ObjectId(),
-                username: req.body.email,
+                username: req.body.username,
                 password: hash,
             });
 
             user.save()
                 .then(result => {
                     res.status(201).json({
-                        message: "User registered!"
+                        message: "User registered!",
+                        content: JSON.stringify(result)
                     });
                 })
                 .catch(error => {
@@ -109,7 +110,8 @@ router.post('/login', (req, res, next) => {
             }
         })
         .catch(error => {
-            authErr(res);
+            authErr(res + error);
+            console.log(next);
         });
 });
 

@@ -101,7 +101,7 @@ router.patch('/:id', checkAuth, (req, res, next) => {
         .exec()
         .then(result => {
             res.status(200).json({
-                message: "Quiz updated!"
+                message: "Quiz updated!"+result
             });
         })
         .catch(error => {

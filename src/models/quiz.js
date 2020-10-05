@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
-const question = require('./question');
-const user = require('./user');
 
-const userSchema = mongoose.Schema({
+const quizSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
-    name: {type: String, required: true},
-    users: {type: [user]},
-    quizQuestions: { type: [question], required: true },
-    userAnswer: { type: [String]},
-    score: {type: {user:user, points: Number}},
-    startTime: {type: Date, required: true, default: new Date()}
-    
+    name: { type: String, required: true },
+    users: { type: [mongoose.Types.ObjectId], ref: 'User' },
+    quizQuestions: { type: [mongoose.Types.ObjectId], ref: 'Question', required: true },
+    userAnswer: { type: [String] },
+    score: { type: { user: mongoose.Types.ObjectId, points: Number } , ref: 'User'},
+    startTime: { type: Date, required: true, default: new Date() }
+
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Quiz', quizSchema);

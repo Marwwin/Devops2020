@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 
 const userRoutes = require('./routes/users');
 const questionRoutes = require('./routes/questions');
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 */
 
 app.use('/quizs', quizRoutes);
-app.use('/quiestions', questionRoutes);
+app.use('/questions', questionRoutes);
 
 //Main Error for anything not caught
 
@@ -53,7 +53,9 @@ app.use((error, req, res, next) => {
     res.status(error.status || 500).json({
         status: error.status,
         error: error.message
+        
     });
+    console.log(next);
 });
 
 module.exports = app;

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({
+const questionSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     question: { type: String, required: true },
     correctAnswers: { type: [String], required: true },
@@ -10,4 +10,4 @@ const userSchema = mongoose.Schema({
     
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Question', questionSchema);
