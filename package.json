@@ -5,10 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "serve": "vue-cli-service serve",
-      "build": "vue-cli-service build",
-      "lint": "vue-cli-service lint"
-    
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "repository": {
     "type": "git",
@@ -23,13 +22,14 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.17.3",
+    "core-js": "^3.6.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
-    "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.17.3",
-    "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
