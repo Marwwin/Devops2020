@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 
 
 app.use('/users', userRoutes);
+/*
 app.use(function (req, res, next) {
 
     if (req.header('authorization') != undefined) {
@@ -35,7 +36,7 @@ app.use(function (req, res, next) {
     }
     next();
 });
-
+*/
 
 app.use('/quizs', quizRoutes);
 app.use('/quiestions', questionRoutes);
