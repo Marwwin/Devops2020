@@ -1,31 +1,17 @@
 <template>
   <div id="app">
-   
-    <Header /> 
     
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/quiz">Quizz</router-link>
-      <router-link to="/profile">Profile</router-link>
-    </div>
-    <router-view />
-    <!-- Skicka in en fråga till barnkomponenten -->
-    <Quiz @clicked="checkaSvar" :currentQuestion="questions[current]" />
+    <Header/>
+    <router-view/>
 
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Quiz from './components/Quiz.vue'
-
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Quiz,
-
   },
   methods:{
     checkaSvar(answered){

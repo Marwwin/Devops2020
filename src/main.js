@@ -11,6 +11,9 @@ Vue.config.productionTip = false;
 
 var vm = new Vue({
     router,
+    data:{
+        currentRoute: window.location.pathname
+    },
     render: h => h(App),
 }).$mount('#app')
 
