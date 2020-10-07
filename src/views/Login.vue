@@ -14,6 +14,7 @@
 <script>
 export default {
   name: "Login",
+  props: ["info"],
   components: {},
   methods: {
     login: function () {

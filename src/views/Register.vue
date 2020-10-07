@@ -1,5 +1,6 @@
 <template>
   <div id="register">
+
     <h2>REGISTER</h2>
 
     <form action="register">
@@ -16,6 +17,7 @@
 
 export default {
   name: 'Register',
+  props: ["info"],
   components: {
       
   },

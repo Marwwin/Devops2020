@@ -1,22 +1,39 @@
 <template>
     <div class="home">
-        <h1> TLK QUIZ APP </h1>
-        <Register />
 
-         <Login />
+        <h1>QUIZ APP F*CK YEAH!!!!</h1>
+    <div id="quiz-btn-container">
+         <router-link to="/quiz"> <div id="quiz-btn"> QUIZ IT UP!!! </div> </router-link>
+    </div>
     </div>
 </template>
 
 <script>
-import Register from '../components/Register.vue'
-import Login from '../components/Login.vue'
+
 
 
 export default {
      name: 'App',
+     props: ["info"],
   components: {
-    Register,
-    Login
+ 
+  },data: function(){
+      return {
+          isRegister:false,
+          isLogin: false
+      }
   },
 }
 </script>
+
+<style scoped>
+#quiz-btn-container{
+    display: flex;
+    justify-content: center;
+}
+#quiz-btn {
+    padding: 2em;
+    background-color: rebeccapurple;
+    border-radius: 10px;
+}
+</style>
