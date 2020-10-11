@@ -7,7 +7,7 @@
     </div>
     <div>
       <router-link class="link" to="/contact">Contact</router-link>
-      <a href="www.tlk.fi" class="link"> TLK </a>
+      <a href="https://www.tlk.fi/" class="link"> TLK </a>
     </div>
   </div>
 </template>
@@ -41,6 +41,11 @@ export default {
   margin: 1em;
   color: darkgoldenrod;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover{
+   color: rgb(223, 185, 90);
 }
 #logo {
   margin-left: 2vh;

@@ -39,8 +39,16 @@ export default {
 }
 .link {
   margin: 1em;
+  color: rgb(223, 185, 90);
+  font-weight: bold;
+  font-size: x-large;
+  text-decoration: none;
+}
+.link:hover{
+  margin: 1em;
   color: darkgoldenrod;
   font-weight: bold;
+  font-size: x-large;
 }
 #logo{
   max-height: 10vh;
