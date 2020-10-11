@@ -1,31 +1,30 @@
 <template>
   <div id="app">
-    
     <Header />
-    <router-view/>
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-   Header,
-   Footer
+    Header,
+    Footer,
   },
-  methods:{
-    checkaSvar(answered){
+  methods: {
+    checkaSvar(answered) {
       alert("föräldern tog emot emmisson, " + answered);
-      if(answered == this.questions[this.current].correct){
+      if (answered == this.questions[this.current].correct) {
         this.current++;
       }
     },
   },
-  data : function(){
+  data: function () {
     return {
       // Skapar en array med våra frågor
 
@@ -34,43 +33,26 @@ export default {
           number: 1,
           question: "Hur går det",
           answers: ["Bra", "Dåligt", "Semi"],
-          correct: 2
+          correct: 2,
         },
         {
           number: 2,
           question: "Är 5 myror fler än fyra elefanter",
           answers: ["Ja", "Nej", "Semi"],
-          correct: 0
-        }
+          correct: 0,
+        },
       ],
-      current: 0
-    }
-  }
-}
+      current: 0,
+    };
+  },
+};
 </script>
 
 <style>
-
 /* latin-ext */
-@font-face {
-  font-family: 'Overpass';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: local('Overpass ExtraLight'), local('Overpass-ExtraLight'), url(https://fonts.gstatic.com/s/overpass/v5/qFdA35WCmI96Ajtm81lqcs7D4howig.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Overpass';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: local('Overpass ExtraLight'), local('Overpass-ExtraLight'), url(https://fonts.gstatic.com/s/overpass/v5/qFdA35WCmI96Ajtm81lqcs7N4ho.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap");
 #app {
-  font-family: Overpass,sans-serif ;
+  font-family: Overpass, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -89,7 +71,7 @@ export default {
   background-color: white;
 }
 
-#nav a{
+#nav a {
   margin: 15px;
 }
 </style>

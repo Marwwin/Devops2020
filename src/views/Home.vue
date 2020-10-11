@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>QUIZ APP F*CK YEAH!!!!</h1>
+    <p>Hello quiz </p>
     <div id="quiz-btn-container">
       <router-link to="/quiz">
         <div id="quiz-btn">QUIZ IT UP!!!</div>
