@@ -1,6 +1,6 @@
 <template>
   <div class="quiz">
-
+    <!-- WHY TF IS THE TEXT NOT IN THE MIDDLE-->
 <div class="outer">
 <div class="box"><h1>Easy</h1></div>
 <div class="box" style="margin : 15px"><h1>Medium</h1></div>
@@ -37,11 +37,13 @@
     background-color: white;
     border: darkslateblue;
     border-style: solid;
+    border-radius: 4%;
     
 transition: all 1s ease;
     }
 
     .box:hover{
        padding: 8.5%;
+       background-color: rgba(71, 61, 139, 0.301);
     }
 </style>
