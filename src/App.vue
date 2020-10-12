@@ -15,36 +15,8 @@ export default {
   components: {
     Header,
     Footer,
-  },
-  methods: {
-    checkaSvar(answered) {
-      alert("föräldern tog emot emmisson, " + answered);
-      if (answered == this.questions[this.current].correct) {
-        this.current++;
-      }
-    },
-  },
-  data: function () {
-    return {
-      // Skapar en array med våra frågor
-
-      questions: [
-        {
-          number: 1,
-          question: "Hur går det",
-          answers: ["Bra", "Dåligt", "Semi"],
-          correct: 2,
-        },
-        {
-          number: 2,
-          question: "Är 5 myror fler än fyra elefanter",
-          answers: ["Ja", "Nej", "Semi"],
-          correct: 0,
-        },
-      ],
-      current: 0,
-    };
-  },
+  }
+  
 };
 </script>
 
