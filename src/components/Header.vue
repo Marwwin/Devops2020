@@ -1,27 +1,56 @@
 <template>
-<div id="head">
-  <h1> <router-link to="/">TLK Quiz-night</router-link></h1>
-    <router-link to="/register">Register</router-link>
-    <router-link to="/login">Login</router-link>
-</div>
+  <div id="head">
+    <div class="side" id="dummy"></div>
+    <div><router-link to="/"><img src="../assets/qoiz_logo_transparent.png" id="logo"></router-link></div>
+    <div class="side" id="orig">
+      <router-link to="/" class="link">Home</router-link>
+      <router-link to="/register" class="link">Register</router-link>
+      <router-link class="link" to="/login">Login</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
 //import func from '../../vue-temp/vue-editor-bridge'
 export default {
-    name: "Header",
-    props: ["info"],
-}
+  name: "Header",
+  props: ["info"],
+  mounted() {
+    const orig = document.getElementById("orig");
+    const dummy = document.getElementById("dummy");
+    dummy.style.width = orig.offsetWidth + "px";
+  },
+};
 </script>
 
+
 <style scoped>
-  #head{
-    background-color: green ;
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
+#head {
+  background-color: steelblue;
+  color: darkgoldenrod;
+  
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.side {
+  margin: 1em;
+}
+.link {
+  margin: 1em;
+  color: rgb(223, 185, 90);
+  font-weight: bold;
+  font-size: x-large;
+  text-decoration: none;
+}
+.link:hover{
+  margin: 1em;
+  color: darkgoldenrod;
+  font-weight: bold;
+  font-size: x-large;
+}
+#logo{
+  max-height: 10vh;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
   <div class="profile">
-    <h1>Login</h1>
+    <h1>Welcome to your profile</h1>
   </div>
 </template>
