@@ -1,7 +1,7 @@
 <template>
   <div id="register">
 
-    <h2>REGISTER</h2>
+    <!--<h2>REGISTER</h2>
 
     <form action="register">
       Username:
@@ -9,7 +9,24 @@
       Password:
       <input type="text" id="password" v-model="password"/>
       <input type="button" value="Register" @click="register" />
-    </form>
+    </form>-->
+
+
+    <div class="outer">
+      <h2>Register</h2>
+       <p>Please fill out the following information and start to play!</p><br>
+      <div class="box">
+        <form action="login">
+      Username:
+        <input type="text" class="input-field" id="username" v-model="username" /><br>
+      Password:
+        <input type="text" class="input-field" id="password" v-model="password" /><br>
+      <br>
+     <div><input type="button" id="login-btn" value="Register" @click="register" /></div> 
+    </form> 
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -49,5 +66,44 @@ export default {
 #register{
     margin-top: 5vh;
 }
+
+
+#login-btn{
+   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+  border-radius: 10px;
+  color:  rgb(223, 185, 90);
+  font-weight: 400;
+}
+
+.outer{
+        padding-top: 4%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+    display: inline-flex;
+    text-align: center;
+    padding: 4%;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-style: solid;
+    border-radius: 4%;
+    }
+
+    .input-field{
+      width: 100%;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+    }
 
 </style>

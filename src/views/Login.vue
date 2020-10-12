@@ -80,7 +80,7 @@ export default {
     .box{
     display: inline-flex;
     text-align: center;
-    padding: 5%;
+    padding: 4%;
     background-color: white;
     border: 1px solid #e6e6e6;
     border-style: solid;
@@ -94,9 +94,4 @@ export default {
   border: 1px solid #e6e6e6;
   border-radius: 10px;
     }
-
-    #forgor-psw{
-      display: inline;
-    }
-
 </style>
