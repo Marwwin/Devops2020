@@ -1,24 +1,22 @@
 <template>
 <!-- VARFÖR FUNKAR EJ MIN CSS IN THIS FORM MY DUDES-->
   <div id="login">
-    <h2>LOGIN</h2>
-
     <div class="outer">
+      <h2>Log in</h2>
+       <p>Please log in with your username and password</p><br>
       <div class="box">
         <form action="login">
       Username:
-      <div class="input-field">
-        <input type="text" id="username" v-model="username" /><br>
-      </div>
+        <input type="text" class="input-field" id="username" v-model="username" /><br>
       Password:
-      <div class="input-field">
-        <input type="text" id="password" v-model="password" /><br>
-      </div>
+        <input type="text" class="input-field" id="password" v-model="password" /><br>
       <br>
-     <div id="login-btn"><input type="button" value="Log in" @click="login" /></div> 
-    </form>
+     <div><input type="button" id="login-btn" value="Log in" @click="login" /></div> 
+    </form> 
       </div>
     </div>
+    <p><a href="../">Forgot your password?</a></p>
+    <p><a href="../register">Register</a></p>
   </div>
 </template>
 
@@ -68,6 +66,8 @@ export default {
   height: 60px;
   background-color: #333333;
   border-radius: 10px;
+  color:  rgb(223, 185, 90);
+  font-weight: 400;
 }
 
 .outer{
@@ -80,9 +80,9 @@ export default {
     .box{
     display: inline-flex;
     text-align: center;
-    padding: 8%;
+    padding: 5%;
     background-color: white;
-    border: darkslateblue;
+    border: 1px solid #e6e6e6;
     border-style: solid;
     border-radius: 4%;
     }
@@ -90,9 +90,13 @@ export default {
     .input-field{
       width: 100%;
   position: relative;
-  background-color: black;
+  background-color: #f7f7f7;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
+    }
+
+    #forgor-psw{
+      display: inline;
     }
 
 </style>
