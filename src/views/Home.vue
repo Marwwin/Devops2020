@@ -7,14 +7,19 @@
         <div id="quiz-btn">QUIZ IT UP!!!</div>
       </router-link>
     </div>
+    <Admin ></Admin>
   </div>
 </template>
 
 <script>
+import Admin from './Admin'
+
 export default {
   name: "App",
   props: ["info"],
-  components: {},
+  components: {
+    Admin
+  },
   data: function () {
     return {
       isRegister: false,
