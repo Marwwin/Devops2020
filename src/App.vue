@@ -15,20 +15,8 @@ export default {
   components: {
     Header,
     Footer,
-  },
-  methods: {
-    checkaSvar(answered) {
-      alert("föräldern tog emot emmisson, " + answered);
-      if (answered == this.questions[this.current].correct) {
-        this.current++;
-      }
-    },
-  },
-  data: function () {
-    return {
-      
-    };
-  },
+  }
+  
 };
 </script>
 
