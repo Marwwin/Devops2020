@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  pre_build:
+    commands:
+  build:
+    commands:
+        - echo we be buildn'
+      - npm run build
+  post_build:
+    commands:
+      - echo nothing to do
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
