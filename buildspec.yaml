@@ -13,7 +13,7 @@ phases:
   post_build:
     commands:
       - echo nothing to do
-      - curl https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg="Build sucess"
+      - curl https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=Buildsucess
 artifacts:
   files:
     - '**/*'
