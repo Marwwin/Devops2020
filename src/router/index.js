@@ -7,7 +7,8 @@ Vue.use(VueRouter)
 const info = {
     test: 1,    
     isRegister : false,
-    isLogin : false
+    isLogin : false,
+    auth: "",
 }
 
 const routes = [{

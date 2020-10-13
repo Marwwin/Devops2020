@@ -7,7 +7,7 @@
         <div id="quiz-btn">QUIZ IT UP!!!</div>
       </router-link>
     </div>
-    <Admin ></Admin>
+    <Admin :info="info" ></Admin>
   </div>
 </template>
 

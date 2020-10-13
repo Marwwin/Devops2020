@@ -1,83 +1,108 @@
 <template>
   <div class="admin">
     <h1>This is an admin page</h1>
-      <div>
+    <div>
       <h3>Add new question</h3>
-  
+
       <p>Question</p>
-      <input type="text" v-model="question" name="question" id="question">
+      <input type="text" v-model="question" name="question" id="question" />
       <p>Answers</p>
-      <input type="text" v-model="ans" name="answer" id="answer">
+      <input type="text" v-model="ans" name="answer" id="answer" />
       <button v-on:click="addAnswer">+</button>
       <ul v-if="answers">
-        <li v-for="ans in answers" :key="ans.id">{{ans.data}}</li>
+        <li v-for="ans in answers" :key="ans.id">{{ ans.data }}</li>
       </ul>
-      <p>Time (default 15) </p>
-      <input type="number" v-model="time" value="15" name="time" id="time"> 
-      <br>
+      <p>Time (default 15)</p>
+      <input type="number" v-model="time" value="15" name="time" id="time" />
+      <br />
       <p>Value points</p>
-      <input type="number" v-model="valuepoints" value="1" name="value" id="value">
-      <br>
-      <input type="button" value="SAVE QUESTION" v-on:click="saveQuestion">
-      </div>
-      <div id="addquizes">
-        <h3>Make a new Quiz</h3>
-        <p>Name of quiz</p>
-        <input type="text" v-model="quizName">
-        <p>Add questions</p>
-        <div id="listofquizes-holder">
+      <input
+        type="number"
+        v-model="valuepoints"
+        value="1"
+        name="value"
+        id="value"
+      />
+      <br />
+      <input type="button" value="SAVE QUESTION" v-on:click="saveQuestion" />
+    </div>
+    <div id="addquizes">
+      <h3>Make a new Quiz</h3>
+      <p>Name of quiz</p>
+      <input type="text" v-model="quizName" />
+      <p>Add questions</p>
+      <div id="listofquizes-holder">
         <ul id="listofquizes">
-          <li v-for="q in questions" :key="q.id">
-            <input type="checkbox" name="" id=""> Question: {{q.question}} Answers: {{q.correctAnswers}}
+          <li  v-for="q in notUsed" :key="q.id">
+            <input  type="checkbox" name="" id="" /> Question:
+            {{ q.question }} Answers: {{ q.correctAnswers }}
           </li>
         </ul>
-
-        </div>
-
-        <button>Save quiz</button>
       </div>
 
-
+      <button>Save quiz</button>
+    </div>
   </div>
 </template>
 
 
 <script>
 export default {
-    name: "Admin",
-    methods: {
-      saveQuestion: function(){
+  name: "Admin",
+  methods: {
+    saveQuestion: function () {
+      //const vm = this;
 
-        const vm = this;
+      const arrayAnswers = this.answers.map((data) => data.data);
 
-        fetch("http://localhost:3000/questions/", {
+      const theJson = {
+        question: this.question,
+        correctAnswers: arrayAnswers,
+        questionValue: this.valuepoints,
+        answerTime: this.time,
+      };
+
+      fetch("http://localhost:3000/questions/", {
         method: "POST",
         headers: {
           Authorization: this.$attrs.info.auth,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          question:vm.question,
-          correctAnswers:vm.answers,
-          questionValue: vm.valuepoints,
-          answerTime: vm.time})}).then((res)=>console.log(res))
-      }
-      ,
-      addAnswer: function(){
-        this.answers.push({
-          id:this.answers.length,
-          data:this.ans
-          });
-        this.ans = null 
-      }
+        body: JSON.stringify(theJson),
+      }).then((res) => {
+        console.log(res);
+        this.populateQuestions();
+        this.question = "";
+        this.correctAnswers = [];
+        this.time = 15;
+        this.questionValue = 1;
+      });
     },
-    mounted(){
-        fetch("http://localhost:3000/questions/").
-          then((res) => res.json()).
-          then((res) => {this.questions = res; console.log(res)});
+    addAnswer: function () {
+      this.answers.push({
+        id: this.answers.length,
+        data: this.ans,
+      });
+      this.ans = null;
     },
-    data: function () {
+    populateQuestions: function () {
+      fetch("http://localhost:3000/questions/")
+        .then((res) => res.json())
+        .then((res) => {
+          this.questions = res;
+        });
+    },
+  },
+  computed: {
+    notUsed: function(){
+      return this.questions.filter((q) => !q.used)
+    }
+  },
+  mounted() {
+    this.populateQuestions();
+  },
+  data: function () {
     return {
       ans: null,
       answers: [],
@@ -88,21 +113,20 @@ export default {
       quizName: null,
     };
   },
-}
+};
 </script>
 
 <style scoped>
-#listofquizes-holder{
+#listofquizes-holder {
   display: flex;
   justify-content: center;
 }
-#listofquizes{
-  display:flex;
-	flex-direction: column;
-	align-items: baseline;
-  
+#listofquizes {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
-#addquizes{
-  margin: 5em
+#addquizes {
+  margin: 5em;
 }
 </style>
