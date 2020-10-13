@@ -2,10 +2,7 @@
   <div id="head">
     <div class="side" id="dummy"></div>
     <div>
-      <router-link v-if="this.$attrs.auth" to="/admin">
-      <img src="../assets/qoiz_logo_transparent.png" id="logo">
-       </router-link>
-      <router-link v-else to="/" >
+      <router-link to="/" >
       <img src="../assets/qoiz_logo_transparent.png" id="logo">    
       </router-link>
       </div>
@@ -35,7 +32,6 @@ export default {
 #head {
   background-color: steelblue;
   color: darkgoldenrod;
-  
   height: 12vh;
   display: flex;
   justify-content: space-between;

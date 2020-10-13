@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :auth=true />
+    <Header :auth="true" />
     <router-view />
     <Footer />
   </div>
@@ -15,8 +15,7 @@ export default {
   components: {
     Header,
     Footer,
-  }
-  
+  },
 };
 </script>
 

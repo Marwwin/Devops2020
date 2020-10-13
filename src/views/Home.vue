@@ -7,7 +7,7 @@
         <div id="quiz-btn">QUIZ IT UP!!!</div>
       </router-link>
     </div>
-    <Admin :info="info" ></Admin>
+    <Admin v-if="this.info.type == 'admin'" :info="info" ></Admin>
   </div>
 </template>
 

@@ -10,11 +10,12 @@
       <input type="text" v-model="ans" name="answer" id="answer" />
       <button v-on:click="addAnswer">+</button>
       <ul v-if="answers">
-        <li v-for="ans in answers" :key="ans.id">{{ ans.data }}</li>
+        <li v-for="ans in answers" :key="ans.id">
+          {{ ans.data }} <button v-on:click="removeAnswer(ans.id)">-</button>
+        </li>
       </ul>
       <p>Time (default 15)</p>
       <input type="number" v-model="time" value="15" name="time" id="time" />
-      <br />
       <p>Value points</p>
       <input
         type="number"
@@ -33,13 +34,13 @@
       <p>Add questions</p>
       <div id="listofquizes-holder">
         <ul id="listofquizes">
-          <li  v-for="q in notUsed" :key="q.id">
-            <input  type="checkbox" name="" id="" /> Question:
-            {{ q.question }} Answers: {{ q.correctAnswers }}
+          <li v-for="(q, i) in notUsed" :key="q.id">
+            {{ i + 1 }} <input type="checkbox" name="" id="" />
+            <span> {{ q.question }} </span>
           </li>
         </ul>
       </div>
-
+      <br />
       <button>Save quiz</button>
     </div>
   </div>
@@ -50,9 +51,15 @@
 export default {
   name: "Admin",
   methods: {
+    removeAnswer: function (id) {
+      // Filtrera bort det elementet som skall tas bort
+      const tempAnswers = this.answers.filter((x, i) => i != id);
+      // Updatera idn på de resterande elementen
+      const newAnswers = tempAnswers.map((x, i) => { return { data: x.data, id: i }; });
+      // Uppdatera answer med den nya 
+      this.answers = newAnswers;
+    },
     saveQuestion: function () {
-      //const vm = this;
-
       const arrayAnswers = this.answers.map((data) => data.data);
 
       const theJson = {
@@ -95,9 +102,9 @@ export default {
     },
   },
   computed: {
-    notUsed: function(){
-      return this.questions.filter((q) => !q.used)
-    }
+    notUsed: function () {
+      return this.questions.filter((q) => !q.used);
+    },
   },
   mounted() {
     this.populateQuestions();

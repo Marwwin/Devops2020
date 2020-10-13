@@ -9,6 +9,7 @@ const info = {
     isRegister : false,
     isLogin : false,
     auth: "",
+    type:"",
 }
 
 const routes = [{

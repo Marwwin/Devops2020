@@ -31,7 +31,7 @@ export default {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({username:this.username,password:this.password})}).then((res)=>console.log(res))
+        body: JSON.stringify({username:this.username,password:this.password})}).then((res)=>{if (res.statusText == "Created"){alert("User "+this.username+" Created")}})
       }
       
   },
