@@ -51,7 +51,20 @@ export default {
       });
     },
   },
+  mounted(){
+    this.fetchstuff();
+  },
   methods: {
+    fetchstuff(){
+      fetch(
+        "https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&file=questions.json"
+      )
+        .then((r) => { return r.json()})
+        .then((json) => {
+          
+          this.json = json;
+        })
+    },
     handleClick(path, data, treeName = "") {
       console.log("click: ", path, data, treeName);
       this.itemPath = path;
@@ -65,13 +78,7 @@ export default {
 
   data() {
     return {
-      json: fetch(
-        "https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&file=questions.json"
-      )
-        .then((r) => r.json())
-        .then((json) => {
-          this.json = json;
-        }),
+      json: [],
       value: "res.error",
       selectableType: "single",
       showSelectController: false,
