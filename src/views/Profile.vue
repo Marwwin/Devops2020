@@ -37,7 +37,7 @@ export default {
   components: {
     VueJsonPretty,
   },
-  
+
   watch: {
     selectableType(newVal) {
       this.renderOK = false;
@@ -64,10 +64,7 @@ export default {
 
   data() {
     return {
-      
-      json: 
-      
-      fetch(
+      json: fetch(
         "https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&file=questions.json"
       )
         .then((r) => r.json())
@@ -79,7 +76,7 @@ export default {
       showSelectController: false,
       showLength: false,
       showLine: false,
-      showDoubleQuotes: true,
+      showDoubleQuotes: false,
       highlightMouseoverNode: true,
       highlightSelectedNode: true,
       selectOnClickNode: true,
@@ -89,14 +86,12 @@ export default {
       deep: 2,
       itemData: {},
       itemPath: "",
-      renderOK: true
+      renderOK: true,
     };
   },
   created() {
     this.val = JSON.stringify(this.json);
   },
-  
-  
 };
 </script>
 
