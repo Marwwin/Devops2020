@@ -11,7 +11,7 @@
     </div>
 
     <h4> PLAYER NAME </h4>
-    <input type="text" v-model="playerName" placeholder="Player Name">
+    <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
     <br>
     <button v-on:click="ready">Ready For Quizzing</button>    
   </div>
@@ -25,7 +25,6 @@ export default {
     return {
       isConnected: false,
       socketMessage: '',
-      playerName: "",
     }
   },
   mounted () {
@@ -34,11 +33,11 @@ export default {
   },
   methods: {
     ready(){
-      this.$socket.emit('player', this.playerName)
+      this.$socket.emit('player', this.$attrs.info.playerName);
     },
     pingServer() {
       // Send the "pingServer" event to the server.
-      this.$socket.emit('connect', 'PING!')
+      this.$socket.emit('connect', 'PING!');
     }
   },
  sockets: {
@@ -46,15 +45,18 @@ export default {
     connect() {
       // Fired when the socket connects.
       this.isConnected = true;
+
     },
 
     disconnect() {
       this.isConnected = false;
+      console.log(this.playerName);
+      this.$socket.emit('disconnect', this.playerName);
     },
 
     // Fired when the server sends something on the "messageChannel" channel.
     messageChannel(data) {
-      this.socketMessage = data
+      this.socketMessage = data;
     },
     player(){
 

@@ -53,6 +53,7 @@ export default {
           vm.info.type = res.type;
           if (res.token){
             alert("Logged in");
+            vm.info.playerName = this.username;
             router.push('/');
           }
         });

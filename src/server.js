@@ -22,7 +22,9 @@ const io = require('socket.io')(3001);
 //socket.on("connect",data => console.log(data));
 
 io.on("connect", socket => {
-    socket.on('player',d => console.log("Player "+d+ " Ready"))
+    console.log("New player connected");
+    socket.on('player',name => console.log("Player "+name+ " ready"));
+    socket.on('disconnect', (name)=> console.log("Player "+name+" disconnected"))
     socket.emit('messageChannel', "This is server");
   });
 //

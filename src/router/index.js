@@ -10,6 +10,7 @@ const info = {
     isLogin : false,
     auth: "",
     type:"",
+    playerName: "",
 }
 
 const routes = [{
