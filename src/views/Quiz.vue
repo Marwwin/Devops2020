@@ -10,16 +10,58 @@
       </div>
     </div>
 
-    <!-- How does one get question from that DB-->
-    <h1>Quiz</h1>
-    <div class="question">
-      <h1>Question 1</h1>
-      <p>What's the name of Helsinki?</p>
-      <input type="text" id="quiz-answer" />
-      <div class="question"></div>
-    </div>
+    <h4> PLAYER NAME </h4>
+    <input type="text" v-model="playerName" placeholder="Player Name">
+    <br>
+    <button v-on:click="ready">Ready For Quizzing</button>    
   </div>
 </template>
+
+<script>
+
+export default {
+  name:'Quiz',
+  data() {
+    return {
+      isConnected: false,
+      socketMessage: '',
+      playerName: "",
+    }
+  },
+  mounted () {
+    
+  
+  },
+  methods: {
+    ready(){
+      this.$socket.emit('player', this.playerName)
+    },
+    pingServer() {
+      // Send the "pingServer" event to the server.
+      this.$socket.emit('connect', 'PING!')
+    }
+  },
+ sockets: {
+   
+    connect() {
+      // Fired when the socket connects.
+      this.isConnected = true;
+    },
+
+    disconnect() {
+      this.isConnected = false;
+    },
+
+    // Fired when the server sends something on the "messageChannel" channel.
+    messageChannel(data) {
+      this.socketMessage = data
+    },
+    player(){
+
+    }
+  },
+}
+</script>
 
 <style scoped>
 .outer {

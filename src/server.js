@@ -1,10 +1,13 @@
 
 const express = require('express')
 const app = express();
+//var http = require('http').createServer(app);
+const server  = require('http').createServer(app);
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+//const io = require('socket.io')(server)
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -12,6 +15,22 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect('mongodb+srv://quizapp:bwV5SSE1A01xGMwD@tlkquizapp.tn7ma.mongodb.net/TLKQuizApp?retryWrites=true&w=majority');
 
 const port = process.env.port || 3000;
+
+const io = require('socket.io')(3001);
+//const socket = io()
+
+//socket.on("connect",data => console.log(data));
+
+io.on("connect", socket => {
+    socket.on('player',d => console.log("Player "+d+ " Ready"))
+    socket.emit('messageChannel', "This is server");
+  });
+//
+//io.on('player', socket => {
+//    console.log("ready");
+//    socket.on('player', (name) => console.log(name));
+//})
+
 app.use(cors());
 
 app.use(morgan('dev'));
@@ -48,8 +67,11 @@ app.use((error, req, res, next) => {
 });
 app.use(cors());
 
-app.listen(port, function () {
-    console.log('CORS-enabled web server listening on port '+port)
-  })
-//app.listen(port);
+//http.createServer(app).listen(port,function () {
+//    console.log('CORS-enabled web server listening on port '+port)
+
+//server.listen(3001, function () {
+//    console.log('CORS-enabled web server listening on port '+port)
+//})
+app.listen(port);
 module.exports = app;
