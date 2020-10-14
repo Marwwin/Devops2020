@@ -31,4 +31,7 @@
 
 4. Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.
 
-    * Created a Discord Webhook on TLK Lan server called DevOPS2020. Bot posts to channel #rowagrupp2 on new build from master.
+    * Created a Discord Webhook on TLK Lan server called DevOPS2020. 
+    * Bot posts to channel #rowagrupp2 on new build from master.
+    * Bot uses a AWS Lambda with a API Gateway and CloudWatch Logs to post. 
+    * Written in Javascript using node-fetch
