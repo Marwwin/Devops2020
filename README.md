@@ -11,9 +11,9 @@
         * Build did **not** pass
     * Note you need to use a regex here that matches branches only if **not** master branch
 
-1. **Create a continuous integration and delivery pipeline that will be triggered on merging to master. AWS codepipeline should build the application and copy the code and artefacts to an S3 bucket or to an EC2 instance. The application should be visible publicly.**
+2. **Create a continuous integration and delivery pipeline that will be triggered on merging to master. AWS codepipeline should build the application and copy the code and artefacts to an S3 bucket or to an EC2 instance. The application should be visible publicly.**
 
-2. **Create a API with AWS API gateway that gets a JSON document from AWS S3 and displays the contents on your web application.**
+3. **Create a API with AWS API gateway that gets a JSON document from AWS S3 and displays the contents on your web application.**
 
 
     * _The JSON document should be a list of key: value pairs._
@@ -29,13 +29,13 @@
             - \*NOT DONE\* Add button to QOIZ To get the json data
 
 
-3. **Testing the application**
+4. **Testing the application**
     * Unit testing:
         - Write a test that tests that your app renders (Application component is rendered)
         - Check that your application renders a h1 title with specific text
         - Write a test that checks that your API call executes on button click
 
-4. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**
+5. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**
 
         - Created a Discord Webhook on TLK Lan server called DevOPS2020. 
         - Bot posts to channel #rowagrupp2 on new build from master.
