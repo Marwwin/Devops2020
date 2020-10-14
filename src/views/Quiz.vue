@@ -9,8 +9,8 @@
         <br />
       </div>
     </div>
-
-    <h4> PLAYER NAME </h4>
+      {{this.socketMessage}}
+    <h3> PLAYER NAME </h3>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
     <br>
     <button v-on:click="ready">Ready For Quizzing</button>    
@@ -34,6 +34,7 @@ export default {
   methods: {
     ready(){
       this.$socket.emit('player', this.$attrs.info.playerName);
+      this.$socket.join('player-room');
     },
     pingServer() {
       // Send the "pingServer" event to the server.
@@ -49,18 +50,16 @@ export default {
     },
 
     disconnect() {
+       this.$socket.emit('player', this.$attrs.info.playerName);
+      this.$socket.emit('disconnect',this.$attrs.info.playerName)
       this.isConnected = false;
-      console.log(this.playerName);
-      this.$socket.emit('disconnect', this.playerName);
     },
 
     // Fired when the server sends something on the "messageChannel" channel.
     messageChannel(data) {
       this.socketMessage = data;
     },
-    player(){
-
-    }
+    
   },
 }
 </script>
