@@ -57,29 +57,5 @@ export default {
 </script>
 
 <style scoped>
-.outer {
-  padding-top: 4%;
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-.box {
-  display: inline-flex;
-  height: 10vh;
-  width: 10vw;
-  text-align: center;
-  padding: 8%;
-  background-color: white;
-  border: darkslateblue;
-  border-style: solid;
-  border-radius: 4%;
 
-  transition: all 1s ease;
-}
-
-.box:hover {
-  padding: 8.5%;
-  background-color: rgba(71, 61, 139, 0.301);
-}
 </style>

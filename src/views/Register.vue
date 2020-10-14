@@ -14,7 +14,7 @@
           /><br />
           <br />
           <div>
-            <input type="button" id="register-btn" value="Log in" @click="register" />
+            <input type="button" id="register-btn" value="Register" @click="register" />
           </div>
         </form>
       </div>
