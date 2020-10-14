@@ -5,17 +5,16 @@
     
 <div class="row">
   <div class="column">
-    <h2>Start to play!</h2>
-    <p>Play without rigistering</p>
-    <button id="btn" ></button>
-  </div>
-  <div class="column" >
     <h2>Register</h2>
     <p>Create your account now!</p>
   </div>
   <div class="column" >
     <h2>Log in</h2>
-    <p>Log in and start to play with your friends!</p>
+    <p>Log in to your accout.</p>
+  </div>
+  <div class="column" >
+    <h2>Start to play!</h2>
+    <p>And enjoy fun quiz games with your friends!</p>
   </div>
 </div>
 
@@ -54,6 +53,9 @@ export default {
 h1{
 font-size: 100px;  
 font-weight: 400;
+}
+p{
+  font-size: 20px;
 }
 
 h2{
