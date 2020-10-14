@@ -17,14 +17,15 @@
 
 
     * _The JSON document should be a list of key: value pairs._
-        - S3 Bucket &quot;rickrollingbucket&quot; contains a json file named data.json
-        - AWS Lambda with API Gateway that takes in bucket name and json file name
-        - Bucketname and filename can be specified in url with params 
-        - 10 random questions have been added to a file questions.json
-        - GET [_ **https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json** _](https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json)
-        - Returns contents of specified file as json key value pairs.
-        - Lambda written in Javascript, using S3 and getObject.
-        - \*NOT DONE\* Add button to QOIZ To get the json data
+
+            - S3 Bucket &quot;rickrollingbucket&quot; contains a json file named data.json
+            - AWS Lambda with API Gateway that takes in bucket name and json file name
+            - Bucketname and filename can be specified in url with params 
+            - 10 random questions have been added to a file questions.json
+            - GET [_ **https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json** _](https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json)
+            - Returns contents of specified file as json key value pairs.
+            - Lambda written in Javascript, using S3 and getObject.
+            - \*NOT DONE\* Add button to QOIZ To get the json data
 
 
 3. **Testing the application**
