@@ -1,14 +1,5 @@
 <template>
   <div class="quiz">
-    <!-- WHY TF IS THE TEXT NOT IN THE MIDDLE-->
-    <div class="outer">
-      <div class="box"><h1>Easy</h1></div>
-      <div class="box" style="margin: 15px"><h1>Medium</h1></div>
-      <div class="box">
-        <h1>Cry</h1>
-        <br />
-      </div>
-    </div>
 
     <h4> PLAYER NAME </h4>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
