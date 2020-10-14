@@ -26,7 +26,7 @@
             - Returns contents of specified file as json key value pairs.
             - Lambda written in Javascript, using S3 and getObject.
             
-            - JSON Data renders on /profile for showcase purposes using vue-json-pretty, some warning errors in prop type checking which are annoying to solve so fuk em.
+            - JSON Data renders on /profile for showcase purposes using vue-json-pretty.
 
 
 4. **Testing the application**
