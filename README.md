@@ -18,15 +18,15 @@
 
     * _The JSON document should be a list of key: value pairs._
 
-            - S3 Bucket &quot;rickrollingbucket&quot; contains a json file named data.json
-            - AWS Lambda with API Gateway that takes in bucket name and json file name
+            - S3 Bucket "rickrollingbucket" contains a json file named questions.json
+            - AWS Lambda with API Gateway that takes in bucket name and json file name as params
             - Bucketname and filename can be specified in url with params 
             - 10 random questions have been added to a file questions.json
-            - GET https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json
+            - GET https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=questions.json
             - Returns contents of specified file as json key value pairs.
             - Lambda written in Javascript, using S3 and getObject.
             
-            - JSON Data renders on /profile for showcase purposes using vue-json-pretty.
+            - JSON Data renders on /profile for showcase purposes using vue-json-pretty with collapsable columns, hilighting and formatting.
 
 
 4. **Testing the application**
