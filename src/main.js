@@ -19,3 +19,4 @@ var vm = new Vue({
 }).$mount('#app')
 
 console.log(vm)
+
