@@ -60,6 +60,7 @@ export default {
     handleChange(newVal, oldVal) {
       console.log("newVal: ", newVal, " oldVal: ", oldVal);
     },
+    
   },
 
   data() {
@@ -93,6 +94,8 @@ export default {
     this.val = JSON.stringify(this.json);
   },
 };
+
+
 </script>
 
 <style scoped>
