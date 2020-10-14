@@ -19,11 +19,12 @@
     * _The JSON document should be a list of key: value pairs._
         - S3 Bucket &quot;rickrollingbucket&quot; contains a json file named data.json
         - AWS Lambda with API Gateway that takes in bucket name and json file name
+        - Bucketname and filename can be specified in url with params 
+        - 10 random questions have been added to a file questions.json
         - GET [_ **https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json** _](https://ejbi8heuue.execute-api.eu-west-2.amazonaws.com/default/myLambdaa?bucket=rickrollingbucket&amp;file=data.json)
         - Returns contents of specified file as json key value pairs.
         - Lambda written in Javascript, using S3 and getObject.
-
-2. \*NOT DONE\* Add button to QOIZ To get the json data
+        - \*NOT DONE\* Add button to QOIZ To get the json data
 
 
 3. **Testing the application**
@@ -32,9 +33,9 @@
         - Check that your application renders a h1 title with specific text
         - Write a test that checks that your API call executes on button click
 
-4. Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.
+4. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**
 
-    * Created a Discord Webhook on TLK Lan server called DevOPS2020. 
-    * Bot posts to channel #rowagrupp2 on new build from master.
-    * Bot uses a AWS Lambda with a API Gateway and CloudWatch Logs to post. 
-    * Written in Javascript using node-fetch
+        - Created a Discord Webhook on TLK Lan server called DevOPS2020. 
+        - Bot posts to channel #rowagrupp2 on new build from master.
+        - Bot uses a AWS Lambda with a API Gateway and CloudWatch Logs to post. 
+        - Written in Javascript using node-fetch
