@@ -4,7 +4,7 @@
     <h4> PLAYER NAME </h4>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
     <br>
-    <button v-on:click="ready">Ready For Quizzing</button>    
+    <button v-on:click="ready">Ready For Quizzing</button> 
   </div>
 </template>
 
