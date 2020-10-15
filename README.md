@@ -36,6 +36,7 @@
         - Write a test that checks that your API call executes on button click
         - Karma JS (testrunning tool) och Jasmine JS (testing framework) (https://karma-runner.github.io/latest/intro/configuration.html)
         (https://jasmine.github.io/pages/getting_started.html)
+        (https://www.youtube.com/watch?v=h2eWfvcAOTI)
 
 
 5. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**

@@ -1,5 +1,6 @@
 <template>
   <div class="quiz">
+    <h1 id="textrender">Let's Start!</h1>
     {{this.socketMessage}}
     <h4> PLAYER NAME </h4>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
@@ -9,6 +10,22 @@
 </template>
 
 <script>
+function renderTag(test) {
+  
+  return test;
+}
+//Unit Testing//
+desscribe('Render a h1 title', () =>{
+  it('render specific h1', () =>{
+    //arrange
+    let render = false;
+    //act
+    const result = renderTag(test);
+  
+    //assert
+    expect(result).toBe(render);
+  })
+});
 
 export default {
   name:'Quiz',
