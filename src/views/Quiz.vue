@@ -1,5 +1,6 @@
 <template>
   <div class="quiz">
+    <h1 id="textrender">Let's Start!</h1>
     <h2>{{this.socketMessage}}</h2>
     <h4> PLAYER NAME </h4>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
@@ -9,7 +10,24 @@
   </div>
 </template>
 
+
 <script>
+/*function renderTag(test) {
+  
+  return test;
+}
+//Unit Testing//
+desscribe('Render a h1 title', () =>{
+  it('render specific h1', () =>{
+    //arrange
+    let render = false;
+    //act
+    const result = renderTag(test);
+  
+    //assert
+    expect(result).toBe(render);
+  })
+});*/
 
 export default {
   name:'Quiz',
@@ -55,5 +73,27 @@ export default {
 </script>
 
 <style scoped>
+#register-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 13vw;
+  height: 10vh;
+  background-color: #333333;
+  border-radius: 10px;
+  color: rgb(223, 185, 90);
+  font-weight: 400;
+}
+
+.input-field {
+  width: 20vw;
+  height: 10vh;
+  text-align: center;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+}
 
 </style>
