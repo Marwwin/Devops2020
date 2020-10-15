@@ -43,19 +43,12 @@
       <br />
       <button>Save quiz</button>
     </div>
-
+  <div id="user-container">
     <button v-on:click="getWaitingRoom">Get list of users in waiting room</button>
     <div id="waiting-room-container" v-for="user in waitingRoom" v-bind:key="user.socket">
       <div v-on:click="sendMsg(user.socket)"> {{user.name}} </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    </div>
   </div>
 
 </template>
@@ -160,15 +153,21 @@ export default {
 </script>
 
 <style scoped>
+#user-container{
+  
+  margin-bottom: 10em 
+
+}
 
 #waiting-room-container{
   display:flex;
   justify-content: center;
   padding: 1em;
+
 }
 
 #waiting-room-container div{
-  margin: 1em
+  margin: 1em;
 }
 
 #listofquizes-holder {
