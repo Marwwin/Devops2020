@@ -1,9 +1,10 @@
 <template>
   <div class="quiz">
-    {{this.socketMessage}}
+    <h2>{{this.socketMessage}}</h2>
     <h4> PLAYER NAME </h4>
     <input type="text" v-model="$attrs.info.playerName" placeholder="Player Name">
     <br>
+    <p v-if="privateMsg">Message from Admin: {{this.privateMsg}}</p>
     <button v-on:click="ready">Ready For Quizzing</button> 
   </div>
 </template>
@@ -16,6 +17,7 @@ export default {
     return {
       isConnected: false,
       socketMessage: '',
+      privateMsg: '',
     }
   },
   mounted () {
@@ -24,13 +26,8 @@ export default {
   },
   methods: {
     ready(){
-      this.$socket.emit('player', this.$attrs.info.playerName);
-      this.$socket.join('player-room');
+      this.$socket.emit('newplayer', this.$attrs.info.playerName);
     },
-    pingServer() {
-      // Send the "pingServer" event to the server.
-      this.$socket.emit('connect', 'PING!');
-    }
   },
  sockets: {
    
@@ -41,7 +38,6 @@ export default {
     },
 
     disconnect() {
-       this.$socket.emit('player', this.$attrs.info.playerName);
       this.$socket.emit('disconnect',this.$attrs.info.playerName)
       this.isConnected = false;
     },
@@ -50,6 +46,9 @@ export default {
     messageChannel(data) {
       this.socketMessage = data;
     },
+    private(data){
+      this.privateMsg = data;
+    }
     
   },
 }

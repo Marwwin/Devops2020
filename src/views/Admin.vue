@@ -43,14 +43,48 @@
       <br />
       <button>Save quiz</button>
     </div>
+
+    <button v-on:click="getWaitingRoom">Get list of users in waiting room</button>
+    <div id="waiting-room-container" v-for="user in waitingRoom" v-bind:key="user.socket">
+      <div v-on:click="sendMsg(user.socket)"> {{user.name}} </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
+
 </template>
 
 
 <script>
 export default {
   name: "Admin",
+   sockets: {
+   
+    connect() {
+      // Fired when the socket connects.
+      this.isConnected = true;
+
+    },
+    admin(data){
+      this.waitingRoom = data;
+    }
+    },
   methods: {
+    sendMsg: function(socket){
+      console.log(socket)
+      const msg = prompt("Send msg")
+      this.$socket.emit("admin",{type: "sendMsg",reciever: socket, message: msg})
+    },
+    getWaitingRoom: function (){
+      this.$socket.emit("admin",{type:"getWaitingRoom"})
+    }
+    ,
     removeAnswer: function (id) {
       // Filtrera bort det elementet som skall tas bort
       const tempAnswers = this.answers.filter((x, i) => i != id);
@@ -118,12 +152,25 @@ export default {
       question: null,
       questions: [],
       quizName: null,
+      isConnected: false,
+      waitingRoom: [],
     };
   },
 };
 </script>
 
 <style scoped>
+
+#waiting-room-container{
+  display:flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#waiting-room-container div{
+  margin: 1em
+}
+
 #listofquizes-holder {
   display: flex;
   justify-content: center;
