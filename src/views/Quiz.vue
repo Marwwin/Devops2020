@@ -56,7 +56,7 @@ export default {
     },
 
     disconnect() {
-      this.$socket.emit('disconnect',this.$attrs.info.playerName)
+      this.$socket.emit('disconnect',this.$attrs.info.playerName); // This probably does nothing
       this.isConnected = false;
     },
 

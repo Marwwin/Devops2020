@@ -71,9 +71,8 @@ export default {
     },
   methods: {
     sendMsg: function(socket){
-      console.log(socket)
-      const msg = prompt("Send msg")
-      this.$socket.emit("admin",{type: "sendMsg",reciever: socket, message: msg})
+      const message = prompt("Send msg")
+      this.$socket.emit("admin",{type: "sendMsg",reciever: socket, message: message})
     },
     getWaitingRoom: function (){
       this.$socket.emit("admin",{type:"getWaitingRoom"})

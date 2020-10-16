@@ -11,7 +11,7 @@ mongoose.set("useUnifiedTopology", true);
 mongoose.connect(
   "mongodb+srv://quizapp:bwV5SSE1A01xGMwD@tlkquizapp.tn7ma.mongodb.net/TLKQuizApp?retryWrites=true&w=majority"
 );
-
+// Port for server
 const port = process.env.port || 3000;
 
 // Socket on different port than server
@@ -36,7 +36,7 @@ io.on("connect", (socket) => {
   socket.on("disconnect", (n) => {
       // Filter the disconnected user from the clientList
       clientList = clientList.filter(x => x.socket.toString() != socket.id.toString() )
-      updateClientList(socket);
+      updateClientList();
   });
 
   // If an admin sends a request
@@ -99,7 +99,7 @@ app.use((error, req, res, next) => {
 app.use(cors());
 
 app.listen(port, function() {
-  console.log("CORS-enabled web server listening on port " + port);
+  console.log("CORS-enabled web server listening on port " + port +"\nSockets on 3001");
 });
 
 module.exports = app;
