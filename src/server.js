@@ -46,7 +46,6 @@ io.on("connect", (socket) => {
     }
     else if(request.type == "sendMsg"){
         console.log("send");
-
         io.to(request.reciever).emit("private",request.message);
     }
   })
