@@ -34,7 +34,7 @@ export default {
       register: function(){
          
           console.log(JSON.stringify({username:this.username,password:this.password}));
-         fetch("http://localhost:3000/users/signup/", {
+         fetch("https://qoiz.azurewebsites.net:8080/users/signup/", {
         method: "POST",
         headers: {
           Accept: "application/json",

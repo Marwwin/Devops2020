@@ -35,7 +35,7 @@ export default {
     login: function () {
 
       const vm = this;
-      fetch("http://localhost:3000/users/login/", {
+      fetch("https://qoiz.azurewebsites.net:8080/users/login/", {
         method: "POST",
         headers: {
           Accept: "application/json",
