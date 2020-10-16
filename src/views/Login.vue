@@ -48,13 +48,17 @@ export default {
       })
         .then((res) => res.json())
         .then((res) => {
+
+          // This is a little cake on cake but a little spaghetti never hurt anyone
           vm.auth = res.token;
           vm.info.auth = res.token;
           vm.info.type = res.type;
+
+          // If sucessfully logged in
           if (res.token){
             alert("Logged in");
             vm.info.playerName = this.username;
-            router.push('/');
+            router.push('/'); // Automagically change to homepage when user is logged in
           }
         });
     },

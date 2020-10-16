@@ -17,7 +17,6 @@ const port = process.env.port || 3000;
 // Socket on different port than server
 const io = require("socket.io")(3001);
 
-let clients;
 let clientList = [];
 
 // When socket is connected
@@ -29,34 +28,35 @@ io.on("connect", (socket) => {
     socket.join("waiting-room");
     const player = { name: name, socket: socket.id };
     clientList.push(player);
-    io.to('waiting-room').emit("messageChannel", "Get Ready!! There are "+ clientList.length + " players online");
     
+    updateClientList();
   });
 
-  // When a user leaves the room
+  // When a user leaves the site
   socket.on("disconnect", (n) => {
       // Filter the disconnected user from the clientList
       clientList = clientList.filter(x => x.socket.toString() != socket.id.toString() )
-      io.to('waiting-room').emit("messageChannel", "Get Ready!! There are "+ clientList.length+ " players online");
+      updateClientList(socket);
   });
 
+  // If an admin sends a request
   socket.on("admin", (request)=>{
     if(request.type == "getWaitingRoom"){
         socket.emit('admin',clientList)
     }
     else if(request.type == "sendMsg"){
-        console.log("send");
         io.to(request.reciever).emit("private",request.message);
     }
   })
-
-  if(clientList.length>1){
-      
-      io.to(clientList[0].socket).emit("private", "Secret message to user "+ clientList[0].name);
-  }
     
 });
-
+// This updates how many players are online to the players and also list of all players to admins
+function updateClientList(){
+  io.to('waiting-room').emit("messageChannel", "Get Ready!! There are "+ clientList.length + " players online");
+  
+  // io.sockets broadcasts to all clients but only admins are on the admin channel
+  io.sockets.emit('admin',clientList); 
+}
 
 
 // Normal server stuff routing etc.
@@ -77,6 +77,7 @@ app.use(
 const questionRoutes = require("./routes/questions");
 const quizsRoutes = require("./routes/quizs");
 const usersRoutes = require("./routes/users");
+const { update } = require("./models/quiz");
 
 app.use("/questions", questionRoutes);
 app.use("/quizs", quizsRoutes);
