@@ -6,11 +6,12 @@ import VueSocketIO from 'vue-socket.io'
 
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: 'https://qoiz.azurewebsites.net:8081',}));
+    connection: 'https://qoiz.azurewebsites.net',}));
     
 Vue.config.productionTip = false;
 
-var vm = new Vue({
+//var vm = 
+new Vue({
     router,
     data:{
         currentRoute: window.location.pathname
@@ -18,5 +19,5 @@ var vm = new Vue({
     render: h => h(App),
 }).$mount('#app')
 
-console.log(vm)
+//console.log(vm)
 
