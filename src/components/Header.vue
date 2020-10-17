@@ -1,7 +1,11 @@
 <template>
   <div id="head">
     <div class="side" id="dummy"></div>
-    <div><router-link to="/"><img src="../assets/qoiz_logo_transparent.png" id="logo"></router-link></div>
+    <div>
+      <router-link to="/" >
+      <img src="../assets/qoiz_logo_transparent.png" id="logo">    
+      </router-link>
+      </div>
     <div class="side" id="orig">
       <router-link to="/" class="link">Home</router-link>
       <router-link to="/register" class="link">Register</router-link>
@@ -14,7 +18,7 @@
 //import func from '../../vue-temp/vue-editor-bridge'
 export default {
   name: "Header",
-  props: ["info"],
+  props: ["info","auth"],
   mounted() {
     const orig = document.getElementById("orig");
     const dummy = document.getElementById("dummy");
@@ -28,7 +32,6 @@ export default {
 #head {
   background-color: steelblue;
   color: darkgoldenrod;
-  
   height: 12vh;
   display: flex;
   justify-content: space-between;

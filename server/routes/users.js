@@ -83,6 +83,7 @@ router.post('/login', (req, res, next) => {
             }
 
             else {
+                console.log(user)
                 bcrypt.compare(req.body.password, user[0].password, (err, result) => {
                     if (err) {
                         authErr(res);
@@ -96,10 +97,13 @@ router.post('/login', (req, res, next) => {
                         },
                             "secret",
                             { expiresIn: "6h" });
-
+                        
                         res.status(200).json({
                             message: "Authenctication successful",
-                            token: token
+                            type: user[0].userType
+                            ,token: token
+                            
+
                         });
                     }
 

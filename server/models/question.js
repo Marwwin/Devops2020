@@ -6,7 +6,8 @@ const questionSchema = mongoose.Schema({
     correctAnswers: { type: [String], required: true },
     questionValue: {type: Number, required: true},
     answerTime: {type: Number, required: true, default: 10},
-    used: {type: Boolean, required: true, default: false}
+    used: {type: Boolean, required: true, default: false},
+    category: {type: String,required:true, default: "General"}
     
 });
 
