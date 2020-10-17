@@ -3,7 +3,7 @@
     <Header :auth="true" />
     <router-view />
     <Footer />
-  </div>
+  </divs>
 </template>
 
 <script>
