@@ -12,6 +12,7 @@ phases:
       - npm run build
   post_build:
     commands:
+      - aws s3 sync ./dist $S3_BUCKET
       - echo nothing to do
       - curl https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=Buildsucess
 artifacts:
