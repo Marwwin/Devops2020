@@ -3,6 +3,7 @@
   <div id="login">
     <div class="outer">
       <h2>Log in</h2>
+
       <p>Please log in with your username and password</p>
       <br />
       <div class="box">
@@ -18,6 +19,7 @@
             <input type="button" id="login-btn" value="Log in" @click="login" />
           </div>
         </form>
+
       </div>
     </div>
     <p><a href="../">Forgot your password?</a></p>
@@ -105,11 +107,14 @@ export default {
   border-radius: 4%;
 }
 
+
 .input-field {
   width: 100%;
   position: relative;
   background-color: #f7f7f7;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
+
 }
+
 </style>
