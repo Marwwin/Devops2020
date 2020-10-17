@@ -96,7 +96,7 @@ export default {
         answerTime: this.time,
       };
 
-      fetch("https://qoiz.azurewebsites.net:8080/questions/", {
+      fetch("https://qoiz.azurewebsites.net/questions/", {
         method: "POST",
         headers: {
           Authorization: this.$attrs.info.auth,
@@ -121,7 +121,7 @@ export default {
       this.ans = null;
     },
     populateQuestions: function () {
-      fetch("https://qoiz.azurewebsites.net:8080/questions/")
+      fetch("https://qoiz.azurewebsites.net/questions/")
         .then((res) => res.json())
         .then((res) => {
           this.questions = res;
