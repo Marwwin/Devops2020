@@ -20,6 +20,12 @@ const routes = [{
         props : { info }
     },
     {
+        path: '/index.html',
+        name: 'Home',
+        component: Home,
+        props : { info }
+    },
+    {
         path: '/quiz',
         name: 'QuizView',
         component: () =>
