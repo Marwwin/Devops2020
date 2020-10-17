@@ -1,6 +1,10 @@
 version: 0.2
 
 phases:
+
+  variables: 
+    buildSucc: "Build Failed Succesfully"
+
   install:
     commands:
       - npm install
@@ -12,9 +16,12 @@ phases:
       - npm run build
   post_build:
     commands:
+      
+      - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"1/" ]; then buildSucc = "Build Succesfull"; fi"
       - aws s3 sync ./dist $S3_BUCKET
-      - echo nothing to do
-      - curl https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=Buildsucess
+      - echo CODEBUILD_BUILD_SUCCEEDING
+      - echo $buildSucc
+      - curl https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=$buildSucc
 artifacts:
   files:
     - '**/*'
