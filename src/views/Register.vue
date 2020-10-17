@@ -1,5 +1,6 @@
 <template>
   <div id="register">
+
     <div class="outer">
       <h2>Register</h2>
       <p>Please fill out the following information and start to play!</p>
@@ -19,6 +20,7 @@
         </form>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -59,8 +61,10 @@ export default {
     margin-top: 5vh;
 }
 
+
 #register-btn {
   display: inline-flex;
+
   justify-content: center;
   align-items: center;
   padding: 0 20px;
@@ -68,6 +72,7 @@ export default {
   height: 60px;
   background-color: #333333;
   border-radius: 10px;
+
   color: rgb(223, 185, 90);
   font-weight: 400;
 }
@@ -91,10 +96,13 @@ export default {
 
 .input-field {
   width: 100%;
+
   position: relative;
   background-color: #f7f7f7;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
+
 }
+
 
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="quiz">
+
     <h1 id="textrender">Let's Start!</h1>
     <h2>{{this.socketMessage}}</h2>
     <h4> PLAYER NAME </h4>
@@ -95,5 +96,6 @@ export default {
   border: 1px solid #e6e6e6;
   border-radius: 10px;
 }
+
 
 </style>
