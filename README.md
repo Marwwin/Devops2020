@@ -30,6 +30,16 @@ npm run build
 npm run lint
 ```
 
+####
+```
+Setup a AWS S3 bucket and configure it for Static website hosting and s3.putObject,putObjectACL,getObject and public access. 
+```
+
+#### 
+```
+Configure  Git and AWS CodeBuild on your account. 
+```
+
 #### 
 
 Project builds and deploys on success to AWS 
@@ -39,7 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-#Project tasks and summaries
+# Project tasks and summaries
 
 1.  **Create a continuous integration pipeline that is triggered by opening a pull request in GitHub. You should not be able to merge the changes before the build has been successful. This pipeline should build the application and run tests.**
 
