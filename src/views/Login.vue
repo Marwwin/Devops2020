@@ -28,14 +28,16 @@
 </template>
 
 <script>
+import { set } from 'vue/types/umd';
 import router from '../router/'
 export default {
   name: "Login",
   props: ["info"],
   components: {},
   methods: {
+    
     login: function () {
-
+       let test = false;
       const vm = this;
       fetch("https://qoiz.azurewebsites.net/users/login/", {
         method: "POST",
@@ -61,15 +63,21 @@ export default {
             alert("Logged in");
             vm.info.playerName = this.username;
             router.push('/'); // Automagically change to homepage when user is logged in
-          }
+        test = true;
+        }
         });
-    },
+    
+},
   },
   data: function () {
     return { username: "", password: "", auth: null,
     };
   },
 };
+
+module.exports = {
+  login: login
+}
 </script>
 
 <style scoped>
