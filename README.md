@@ -1,6 +1,42 @@
 # Devops kurs 2020 vid Arcada 
 
-## Projektet heter TLK Qoiz och är en Quiz app som använder Vue.js med socket.io samt NoSQL MongoDB.
+## TLK Qoiz är en Quiz app som använder Vue.js med socket.io samt NoSQL MongoDB.
+
+## Project setup
+
+#### Cloning the project
+
+```
+git clone https://github.com/Marwwin/Devops2020/
+```
+
+#### Installing Node modules for local testing
+```
+npm install
+```
+
+#### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+#### Compiles and minifies for production
+```
+npm run build
+```
+
+#### Lints and fixes files
+```
+npm run lint
+```
+
+#### 
+
+Project builds and deploys on success to AWS 
+
+#### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
 
 
 1.  **Create a continuous integration pipeline that is triggered by opening a pull request in GitHub. You should not be able to merge the changes before the build has been successful. This pipeline should build the application and run tests.**
