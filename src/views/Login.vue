@@ -2,7 +2,7 @@
   <!-- VARFÖR FUNKAR EJ MIN CSS IN THIS FORM MY DUDES-->
   <div id="login">
     <div class="outer">
-      <h2>Log in</h2>
+      <h2 >Log in</h2>
 
       <p>Please log in with your username and password</p>
       <br />
@@ -78,6 +78,7 @@ export default {
 module.exports = {
   login: login
 }
+
 </script>
 
 <style scoped>

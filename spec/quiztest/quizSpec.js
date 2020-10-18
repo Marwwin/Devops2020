@@ -21,4 +21,5 @@ describe('Login View test', () => {
 
         expect(utils).toBe(info);
     })
+
 });
