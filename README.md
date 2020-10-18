@@ -30,12 +30,12 @@ npm run build
 npm run lint
 ```
 
-####
+#### Setup hosting
 ```
 Setup a AWS S3 bucket and configure it for Static website hosting and s3.putObject,putObjectACL,getObject and public access. 
 ```
 
-#### 
+#### Setup pipeline
 ```
 Configure  Git and AWS CodeBuild on your account. 
 ```
