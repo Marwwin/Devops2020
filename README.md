@@ -39,6 +39,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
+#Project tasks and summaries
+
 1.  **Create a continuous integration pipeline that is triggered by opening a pull request in GitHub. You should not be able to merge the changes before the build has been successful. This pipeline should build the application and run tests.**
 
     * You can find from AWS how to only run build on opening a pull request
