@@ -15,7 +15,7 @@ phases:
     commands:
       
 
-      - bash -c 'if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then curl -X GET "https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=Build&20Failed%20Sucessfully" exit; fi'
+      - bash -c 'if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then curl -X GET "https://10zbellahd.execute-api.eu-west-2.amazonaws.com/default/discordGitInfo?msg=Build%20Failed%20Sucessfully" exit; fi'
 
       - aws s3 sync ./dist $S3_BUCKET
       - echo CODEBUILD_BUILD_SUCCEEDING
