@@ -36,7 +36,6 @@ export default {
   methods: {
     
     login: function () {
-       let test = false;
       const vm = this;
       fetch("https://qoiz.azurewebsites.net/users/login/", {
         method: "POST",
@@ -62,7 +61,6 @@ export default {
             alert("Logged in");
             vm.info.playerName = this.username;
             router.push('/'); // Automagically change to homepage when user is logged in
-        test = true;
         }
         });
     
@@ -74,9 +72,6 @@ export default {
   },
 };
 
-module.exports = {
-  login: login
-}
 
 </script>
 
