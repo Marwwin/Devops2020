@@ -1,7 +1,55 @@
 # Devops kurs 2020 vid Arcada 
 
-## Projektet heter TLK Qoiz och är en Quiz app som använder Vue.js med socket.io samt NoSQL MongoDB.
+## TLK Qoiz är en Quiz app som använder Vue.js med socket.io samt NoSQL MongoDB.
 
+## Project setup
+
+#### Cloning the project
+
+```
+git clone https://github.com/Marwwin/Devops2020/
+```
+
+#### Installing Node modules for local testing
+```
+npm install
+```
+
+#### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+#### Compiles and minifies for production
+```
+npm run build
+```
+
+#### Lints and fixes files
+```
+npm run lint
+```
+
+#### Setup hosting
+```
+Setup a AWS S3 bucket and configure it for Static website hosting and s3.putObject,putObjectACL,getObject and public access. 
+```
+
+#### Setup pipeline
+```
+Configure  Git and AWS CodeBuild on your account. 
+```
+
+#### 
+
+Project builds and deploys on success to AWS 
+
+#### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+# Project tasks and summaries
 
 1.  **Create a continuous integration pipeline that is triggered by opening a pull request in GitHub. You should not be able to merge the changes before the build has been successful. This pipeline should build the application and run tests.**
 
@@ -34,8 +82,9 @@
         - Write a test that tests that your app renders (Application component is rendered)
         - Check that your application renders a h1 title with specific text
         - Write a test that checks that your API call executes on button click
-        - You can find the unit tests in the spec folder in quiztest map
-        - tests are run by Jasmine 
+        - Karma JS (testrunning tool) och Jasmine JS (testing framework) (https://karma-runner.github.io/latest/intro/configuration.html)
+        (https://jasmine.github.io/pages/getting_started.html)
+        (https://www.youtube.com/watch?v=h2eWfvcAOTI)
 
 
 5. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**
