@@ -59,7 +59,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         * Build did **not** pass
     * Note you need to use a regex here that matches branches only if **not** master branch
 
+            - This is done via a github webhook connected with Amazon codebuild. 
+            - The project will start building on creating a new pull request. You will only be able to merge the request once the build is succesfully completed and the code has been reviewed by another developer.
+    
+
 2. **Create a continuous integration and delivery pipeline that will be triggered on merging to master. AWS codepipeline should build the application and copy the code and artefacts to an S3 bucket or to an EC2 instance. The application should be visible publicly.**
+      
+            - If the project builds sucessfully in the previous step then it will be uploaded to the public S3 bucket tlk.quizz.app and can be viewed at http://tlk-quizz-app.s3-website.eu-north-1.amazonaws.com/
 
 3. **Create a API with AWS API gateway that gets a JSON document from AWS S3 and displays the contents on your web application.**
 
@@ -79,6 +85,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 4. **Testing the application**
     * Unit testing:
+        ** THIS DOESNT WORK, Vue.JS Testing seems to be broken. No result after 10+ hours of work.
         - Write a test that tests that your app renders (Application component is rendered)
         - Check that your application renders a h1 title with specific text
         - Write a test that checks that your API call executes on button click
@@ -90,6 +97,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 5. **Trigger a build status notifications from your master pipeline to discord or/and email using AWS cloudWatch, AWS Simple notification service and Lambda.**
 
         - Created a Discord Webhook on TLK Lan server called DevOPS2020. 
-        - Bot posts to channel #rowagrupp2 on new build from master.
+        - Bot posts to channel #rowagrupp2 if build was successfull or not.
         - Bot uses a AWS Lambda with a API Gateway and CloudWatch Logs to post. 
         - Written in Javascript using node-fetch
