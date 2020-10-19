@@ -58,9 +58,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         * **Not** peer reviewed
         * Build did **not** pass
     * Note you need to use a regex here that matches branches only if **not** master branch
-
-      - This is done via a github webhook connected with Amazon codebuild. 
-      - The project will start building on creating a new pull request. You will only be able to merge the request once the build is succesfully completed and the code has been reviewed by another developer.
+         - This is done via a github webhook connected with Amazon codebuild. 
+         - The project will start building on creating a new pull request. You will only be able to merge the request once the build is succesfully completed and the code has been reviewed by another developer.
     
 
 2. **Create a continuous integration and delivery pipeline that will be triggered on merging to master. AWS codepipeline should build the application and copy the code and artefacts to an S3 bucket or to an EC2 instance. The application should be visible publicly.**
