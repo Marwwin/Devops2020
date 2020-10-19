@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { set } from 'vue/types/umd';
 import router from '../router/'
 export default {
   name: "Login",
