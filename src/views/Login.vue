@@ -2,7 +2,7 @@
   <!-- VARFÖR FUNKAR EJ MIN CSS IN THIS FORM MY DUDES-->
   <div id="login">
     <div class="outer">
-      <h2>Log in</h2>
+      <h2 >Log in</h2>
 
       <p>Please log in with your username and password</p>
       <br />
@@ -34,8 +34,8 @@ export default {
   props: ["info"],
   components: {},
   methods: {
+    
     login: function () {
-
       const vm = this;
       fetch("https://qoiz.azurewebsites.net/users/login/", {
         method: "POST",
@@ -61,15 +61,18 @@ export default {
             alert("Logged in");
             vm.info.playerName = this.username;
             router.push('/'); // Automagically change to homepage when user is logged in
-          }
+        }
         });
-    },
+    
+},
   },
   data: function () {
     return { username: "", password: "", auth: null,
     };
   },
 };
+
+
 </script>
 
 <style scoped>

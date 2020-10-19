@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <h1>QUIZ APP F*CK YEAH!!!!</h1>
-    
+    <div id="quiz-btn-container">
+      <router-link to="/profile">
+        <div id="quiz-btn">SHOW THAT JSON</div>
+      </router-link>
+    </div>
     
 <div class="row">
   <div class="column">
