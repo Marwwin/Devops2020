@@ -4,7 +4,7 @@ exports.handler = async (event) => {
     event;
     var msg = event.queryStringParameters.msg;
 
-    const webhook = "https://discordapp.com/api/webhooks/763803229741252608/Pd6U6gQKeUh822iuWJeRPHTNreTqVoa1lmfsPESP9vIa_xDHLrtp_o_sx-RztCQIbD4k";
+    const webhook = "https://discordapp.com/api/webhooks/*$WEBHOOK";
 	const answer = {
     "username": "DevOPBot2",
     "channel" : "rowagrupp2",
@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 	}})
 	.then(res => console.log(res));
 	
-	
+	console.log(x);
     const response = {
         statusCode: 200,
         body: JSON.stringify('succes'),
